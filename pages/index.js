@@ -41,7 +41,10 @@ export default function Home() {
         />
 
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://metatags.io/" />
+        <meta
+          property="og:url"
+          content="https://dragon-ball-quiz.pablotdv.vercel.app/"
+        />
         <meta property="og:title" content="Dragon Ball Quiz" />
         <meta
           property="og:description"
@@ -49,11 +52,14 @@ export default function Home() {
         />
         <meta
           property="og:image"
-          content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"
+          content="https://interferenciaurbana.files.wordpress.com/2014/07/23.jpg"
         />
 
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://metatags.io/" />
+        <meta
+          property="twitter:url"
+          content="https://dragon-ball-quiz.pablotdv.vercel.app/"
+        />
         <meta property="twitter:title" content="Dragon Ball Quiz" />
         <meta
           property="twitter:description"
@@ -61,7 +67,7 @@ export default function Home() {
         />
         <meta
           property="twitter:image"
-          content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"
+          content="https://interferenciaurbana.files.wordpress.com/2014/07/23.jpg"
         />
       </Head>
       <QuizBackground backgroundImage={db.bg}>

@@ -4,6 +4,7 @@ import Footer from "../src/components/Footer";
 import GitHubCorner from "../src/components/GitHubCorner";
 import QuizBackground from "../src/components/QuizBackground";
 import Widget from "../src/components/Widget";
+import Head from "next/head";
 
 const Title = styled.h1`
   font-size: 50px;
@@ -30,27 +31,61 @@ const QuizContainer = styled.div`
 
 export default function Home() {
   return (
-    <QuizBackground backgroundImage={db.bg}>
-      <QuizContainer>
-        <Widget>
-          <Widget.Header>
-            <h1>Dragon Ball</h1>
-          </Widget.Header>
-          <Widget.Content>
-            <p>lorem ipsum dolor sit amet...</p>
-          </Widget.Content>
-        </Widget>
-        <Widget>
-          <Widget.Header>
-            <h1>Quizes da Galera</h1>
-          </Widget.Header>
-          <Widget.Content>
-            <p>lorem ipsum dolor sit amet...</p>
-          </Widget.Content>
-        </Widget>
-        <Footer />
-      </QuizContainer>
-      <GitHubCorner projectUrl="https://github.com/pablotdv" />
-    </QuizBackground>
+    <>
+      <Head>
+        <title>Dragon Ball Quiz</title>
+        <meta name="title" content="Dragon Ball Quiz" />
+        <meta
+          name="description"
+          content="Quiz sobre Dragon Ball desenvolvido durante a imersão react da aluara."
+        />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://metatags.io/" />
+        <meta property="og:title" content="Dragon Ball Quiz" />
+        <meta
+          property="og:description"
+          content="Quiz sobre Dragon Ball desenvolvido durante a imersão react da aluara."
+        />
+        <meta
+          property="og:image"
+          content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"
+        />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://metatags.io/" />
+        <meta property="twitter:title" content="Dragon Ball Quiz" />
+        <meta
+          property="twitter:description"
+          content="Quiz sobre Dragon Ball desenvolvido durante a imersão react da aluara."
+        />
+        <meta
+          property="twitter:image"
+          content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"
+        />
+      </Head>
+      <QuizBackground backgroundImage={db.bg}>
+        <QuizContainer>
+          <Widget>
+            <Widget.Header>
+              <h1>Dragon Ball</h1>
+            </Widget.Header>
+            <Widget.Content>
+              <p>lorem ipsum dolor sit amet...</p>
+            </Widget.Content>
+          </Widget>
+          <Widget>
+            <Widget.Header>
+              <h1>Quizes da Galera</h1>
+            </Widget.Header>
+            <Widget.Content>
+              <p>lorem ipsum dolor sit amet...</p>
+            </Widget.Content>
+          </Widget>
+          <Footer />
+        </QuizContainer>
+        <GitHubCorner projectUrl="https://github.com/pablotdv" />
+      </QuizBackground>
+    </>
   );
 }

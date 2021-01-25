@@ -50,25 +50,16 @@ export default function Home() {
           property="og:description"
           content="Quiz sobre Dragon Ball desenvolvido durante a imersão react da aluara."
         />
-        <meta
-          property="og:image"
-          content="https://interferenciaurbana.files.wordpress.com/2014/07/23.jpg"
-        />
+        <meta property="og:image" content={db.bg} />
 
         <meta property="twitter:card" content="summary_large_image" />
-        <meta
-          property="twitter:url"
-          content="https://dragon-ball-quiz.pablotdv.vercel.app/"
-        />
+        <meta property="twitter:url" content={db.bg} />
         <meta property="twitter:title" content="Dragon Ball Quiz" />
         <meta
           property="twitter:description"
           content="Quiz sobre Dragon Ball desenvolvido durante a imersão react da aluara."
         />
-        <meta
-          property="twitter:image"
-          content="https://interferenciaurbana.files.wordpress.com/2014/07/23.jpg"
-        />
+        <meta property="twitter:image" content={db.bg} />
       </Head>
       <QuizBackground backgroundImage={db.bg}>
         <QuizContainer>
@@ -90,7 +81,7 @@ export default function Home() {
           </Widget>
           <Footer />
         </QuizContainer>
-        <GitHubCorner projectUrl="https://github.com/pablotdv" />
+        <GitHubCorner projectUrl="https://github.com/pablotdv/dragon-ball-quiz" />
       </QuizBackground>
     </>
   );

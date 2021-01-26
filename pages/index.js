@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useRouter } from "next/router";
 import db from "../db.json";
 import Footer from "../src/components/Footer";
 import GitHubCorner from "../src/components/GitHubCorner";
@@ -21,7 +20,6 @@ const QuizContainer = styled.div`
 const InputName = styled.input``;
 
 export default function Home() {
-  const router = useRouter();
   const [name, setName] = useState("");
   return (
     <>
@@ -32,22 +30,19 @@ export default function Home() {
               <h1>Dragon Ball</h1>
             </Widget.Header>
             <Widget.Content>
-              <form
-                onSubmit={(event) => {
-                  event.preventDefault();
-                  router.push(`/quiz?name=${name}`);
+              <p>
+                Teste os seus conhecimentos sobre o universo Marvel e divirta-se
+                criando o seu AluraQuiz!
+              </p>
+              <InputName
+                placeholder="Diz ai seu nome"
+                onChange={(event) => {
+                  setName(event.currentTarget.value);
                 }}
-              >
-                <InputName
-                  placeholder="Diz ai seu nome"
-                  onChange={(event) => {
-                    setName(event.currentTarget.value);
-                  }}
-                />
-                <button type="submit" disabled={name.length === 0}>
-                  Jogar {name}
-                </button>
-              </form>
+              />
+              <button type="submit" disabled={name.length === 0}>
+                Jogar {name}
+              </button>
             </Widget.Content>
           </Widget>
           <Widget>

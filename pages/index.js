@@ -1,22 +1,11 @@
+import React, { useState } from "react";
 import styled from "styled-components";
+import { useRouter } from "next/router";
 import db from "../db.json";
 import Footer from "../src/components/Footer";
 import GitHubCorner from "../src/components/GitHubCorner";
 import QuizBackground from "../src/components/QuizBackground";
 import Widget from "../src/components/Widget";
-import Head from "next/head";
-
-const Title = styled.h1`
-  font-size: 50px;
-  color: ${({ theme }) => theme.colors.primary};
-`;
-
-const BackgroundImage = styled.div`
-  background-image: url(${db.bg});
-  flex: 1;
-  background-size: cover;
-  background-position: center;
-`;
 
 const QuizContainer = styled.div`
   width: 100%;
@@ -29,38 +18,13 @@ const QuizContainer = styled.div`
   }
 `;
 
+const InputName = styled.input``;
+
 export default function Home() {
+  const router = useRouter();
+  const [name, setName] = useState("");
   return (
     <>
-      <Head>
-        <title>Dragon Ball Quiz</title>
-        <meta name="title" content="Dragon Ball Quiz" />
-        <meta
-          name="description"
-          content="Quiz sobre Dragon Ball desenvolvido durante a imersão react da aluara."
-        />
-
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content="https://dragon-ball-quiz.pablotdv.vercel.app/"
-        />
-        <meta property="og:title" content="Dragon Ball Quiz" />
-        <meta
-          property="og:description"
-          content="Quiz sobre Dragon Ball desenvolvido durante a imersão react da aluara."
-        />
-        <meta property="og:image" content={db.bg} />
-
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={db.bg} />
-        <meta property="twitter:title" content="Dragon Ball Quiz" />
-        <meta
-          property="twitter:description"
-          content="Quiz sobre Dragon Ball desenvolvido durante a imersão react da aluara."
-        />
-        <meta property="twitter:image" content={db.bg} />
-      </Head>
       <QuizBackground backgroundImage={db.bg}>
         <QuizContainer>
           <Widget>
@@ -68,7 +32,22 @@ export default function Home() {
               <h1>Dragon Ball</h1>
             </Widget.Header>
             <Widget.Content>
-              <p>lorem ipsum dolor sit amet...</p>
+              <form
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  router.push(`/quiz?name=${name}`);
+                }}
+              >
+                <InputName
+                  placeholder="Diz ai seu nome"
+                  onChange={(event) => {
+                    setName(event.currentTarget.value);
+                  }}
+                />
+                <button type="submit" disabled={name.length === 0}>
+                  Jogar {name}
+                </button>
+              </form>
             </Widget.Content>
           </Widget>
           <Widget>

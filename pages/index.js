@@ -1,25 +1,16 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import { useRouter } from "next/router";
 import db from "../db.json";
+import Button from "../src/components/Button";
 import Footer from "../src/components/Footer";
 import GitHubCorner from "../src/components/GitHubCorner";
+import Input from "../src/components/Input";
 import QuizBackground from "../src/components/QuizBackground";
+import QuizContainer from "../src/components/QuizContainer";
 import Widget from "../src/components/Widget";
 
-const QuizContainer = styled.div`
-  width: 100%;
-  max-width: 350px;
-  padding-top: 45px;
-  margin: auto 10%;
-  @media screen and (max-width: 500px) {
-    margin: auto;
-    padding: 15px;
-  }
-`;
-
-const InputName = styled.input``;
-
 export default function Home() {
+  const router = useRouter();
   const [name, setName] = useState("");
   return (
     <>
@@ -34,15 +25,22 @@ export default function Home() {
                 Teste os seus conhecimentos sobre o universo Marvel e divirta-se
                 criando o seu AluraQuiz!
               </p>
-              <InputName
-                placeholder="Diz ai seu nome"
-                onChange={(event) => {
-                  setName(event.currentTarget.value);
+              <form
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  router.push(`/quiz?name=${name}`);
                 }}
-              />
-              <button type="submit" disabled={name.length === 0}>
-                Jogar {name}
-              </button>
+              >
+                <Input
+                  name="nomeDoUsuario"
+                  placeholder="Diz ai seu nome"
+                  onChange={(event) => setName(event.currentTarget.value)}
+                  value={name}
+                />
+                <Button type="submit" disabled={name.length === 0}>
+                  {`Jogar ${name}`}
+                </Button>
+              </form>
             </Widget.Content>
           </Widget>
           <Widget>
